@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // async function to fetch initial data
 async function fetchInitialData() {
-  const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy"; // Replace with your API key
+  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv"; // Replace with your API key
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3000&api_key=${apiKey}`;
 
   try {
