@@ -2,6 +2,8 @@ import "./style.css";
 
 //API-KEY: UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy
 
+document.addEventListener("DOMContentLoaded", () => {});
+
 const form = document.getElementById("rover-form");
 const roverInfo = document.getElementById("rover-info");
 const photoGallery = document.getElementById("photo-gallery");
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // async function to fetch initial data
 async function fetchInitialData() {
-  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv"; 
+  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv";
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3000&api_key=${apiKey}`; //FIRST API CALL
 
   try {
@@ -62,7 +64,8 @@ async function fetchInitialData() {
       roverDetails.innerHTML = `
                 Launch Date: ${roverData.launch_date} <br>
                 Landing Date: ${roverData.landing_date} <br>
-                Status: ${roverData.status}
+                Status: ${roverData.status} <br>
+                Sol: ${data.photos[0].sol}
             `;
       roverInfo.classList.remove("hidden");
 
@@ -135,7 +138,8 @@ form.addEventListener("submit", async (event) => {
       roverDetails.innerHTML = `
                 Launch Date: ${roverData.launch_date} <br>
                 Landing Date: ${roverData.landing_date} <br>
-                Status: ${roverData.status}
+                Status: ${roverData.status} <br>
+                Sol: ${data.photos[0].sol}
             `;
       roverInfo.classList.remove("hidden");
 
