@@ -119,7 +119,7 @@ form.addEventListener("submit", async (event) => {
   }
 
   // info
-  const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy";
+  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv";
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=${sol}&api_key=${apiKey}`;
 
   try {
