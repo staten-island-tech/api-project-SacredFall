@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="src/style.css" />
+        <title>SOLAR</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Suranna&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="bg-[url('GALAXY.png')] min-h-screen flex flex-col">
+        <div class="skib flex flex-col mt-20 mb-10">
+            <h1 class="font-suranna text-slate-500 text-4xl">FURT</h1>
+            <h2 class="font-biryani text-slate-500 text-xl mt-10">
+                A MARS EXPLORATION
+            </h2>
+        </div>
+
+        <!-- Main content area -->
+        <div class="flex-grow flex items-center justify-center">
+            <!-- Photo div containing the design -->
+            <div class="photo w-3/4 h-3/4 bg-slate-600 rounded-lg shadow-lg">
+                <!-- Tabs -->
+                <div class="flex space-x-4 bg-slate-700 px-4 py-2 rounded-t-lg">
+                    <button
+                        class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
+                        data-rover="curiosity"
+                    >
+                        Curiosity
+                    </button>
+                    <div class="border-r border-gray-500 h-6"></div>
+                    <button
+                        class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
+                        data-rover="spirit"
+                    >
+                        Spirit
+                    </button>
+                    <div class="border-r border-gray-500 h-6"></div>
+                    <button
+                        class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
+                        data-rover="opportunity"
+                    >
+                        Opportunity
+                    </button>
+                </div>
+
+                <!-- Main Content Area -->
+                <div
+                    class="flex-grow flex flex-col items-center justify-center p-4"
+                >
+                    <!-- Search Form -->
+                    <form id="rover-form" class="w-full max-w-md">
+                        <input
+                            id="rover-name"
+                            type="hidden"
+                            value="curiosity"
+                        />
+                        <input
+                            id="rover-sol"
+                            type="number"
+                            class="w-full p-2 font-biryani bg-slate-700 text-white rounded-lg border border-gray-500 mb-4"
+                        />
+                        <button
+                            type="submit"
+                            class="w-full p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                        >
+                            Search
+                        </button>
+                    </form>
+
+                    <!-- Results Section -->
+                    <div
+                        id="rover-info"
+                        class="text-white mt-8 text-center hidden"
+                    >
+                        <h2 class="text-2xl font-bold" id="rover-title"></h2>
+                        <p id="rover-details" class="mt-2"></p>
+                    </div>
+
+                    <!-- Photos Section -->
+                    <div
+                        id="photo-gallery"
+                        class="photo-gallery mt-8 flex flex-wrap justify-center hidden"
+                    ></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+            id="modal"
+            class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
+        >
+            <div class="p-4 rounded-lg shadow-lg relative">
+                <button
+                    id="close-modal"
+                    class="absolute top-2 right-2 text-black"
+                >
+                    &times;
+                </button>
+                <img
+                    id="modal-image"
+                    src=""
+                    alt="Mars Rover Photo"
+                    class="w-96 h-96 object-cover rounded-lg"
+                />
+            </div>
+        </div>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
