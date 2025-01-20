@@ -22,7 +22,7 @@ roverTabs.forEach((tab) => {
     );
     // active tab to clicked
     tab.classList.add("text-white", "border-slate-500");
-    // update the hiddne input
+    // update the hidden input
     roverNameInput.value = tab.getAttribute("data-rover");
     // placeholder update
     const maxSol = tab.getAttribute("data-max-sol");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   roverSolInput.placeholder = "Max Sol: 4427";
   roverSolInput.max = "4427";
 
-  // intial fetch
+  // initial fetch
   fetchInitialData();
 });
 
@@ -66,9 +66,17 @@ async function fetchInitialData() {
             `;
       roverInfo.classList.remove("hidden");
 
-      // photo dfisplay
+      // photo display
       photoGallery.innerHTML = "";
-      photoGallery.classList.add("grid", "grid-cols-5", "gap-4");
+      photoGallery.classList.add(
+        "grid",
+        "grid-cols-1",
+        "sm:grid-cols-2",
+        "md:grid-cols-3",
+        "lg:grid-cols-4",
+        "xl:grid-cols-5",
+        "gap-4",
+      );
       data.photos.forEach((photo) => {
         const img = document.createElement("img");
         img.src = photo.img_src;
@@ -105,8 +113,13 @@ form.addEventListener("submit", async (event) => {
   const roverName = roverNameInput.value;
   const sol = roverSolInput.value;
 
+  if (!roverName || !sol) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
   // info
-  const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy"; // Replace with your API key
+  const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy";
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=${sol}&api_key=${apiKey}`;
 
   try {
@@ -128,7 +141,15 @@ form.addEventListener("submit", async (event) => {
 
       // photo display
       photoGallery.innerHTML = "";
-      photoGallery.classList.add("grid", "grid-cols-5", "gap-4");
+      photoGallery.classList.add(
+        "grid",
+        "grid-cols-1",
+        "sm:grid-cols-2",
+        "md:grid-cols-3",
+        "lg:grid-cols-4",
+        "xl:grid-cols-5",
+        "gap-4",
+      );
       data.photos.forEach((photo) => {
         const img = document.createElement("img");
         img.src = photo.img_src;

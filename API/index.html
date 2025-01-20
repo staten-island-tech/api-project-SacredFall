@@ -15,16 +15,20 @@
         <div class="skib flex flex-col mt-20 mb-10">
             <h1 class="font-suranna text-slate-500 text-4xl">FURT</h1>
             <h2 class="font-biryani text-slate-500 text-xl mt-10">
-                A MARS EXPLORATION
+                A MARS VISUAL
             </h2>
         </div>
 
         <!-- main -->
-        <div class="flex-grow flex items-center justify-center">
+        <div class="flex-grow flex items-center justify-center px-4">
             <!-- Container -->
-            <div class="photo w-3/4 h-3/4 bg-slate-600 rounded-lg shadow-lg">
+            <div
+                class="photo w-full max-w-5xl bg-slate-600 rounded-lg shadow-lg"
+            >
                 <!-- Tabs -->
-                <div class="flex space-x-4 bg-slate-700 px-4 py-2 rounded-t-lg">
+                <div
+                    class="flex flex-wrap justify-center space-x-4 bg-slate-700 px-4 py-2 rounded-t-lg"
+                >
                     <button
                         class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
                         data-rover="curiosity"
@@ -35,10 +39,10 @@
                     <div class="border-r border-gray-500 h-6"></div>
                     <button
                         class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
-                        data-rover="spirit"
-                        data-max-sol="2208"
+                        data-rover="perseverance"
+                        data-max-sol="1382"
                     >
-                        Spirit
+                        Perseverance
                     </button>
                     <div class="border-r border-gray-500 h-6"></div>
                     <button
@@ -47,6 +51,14 @@
                         data-max-sol="5111"
                     >
                         Opportunity
+                    </button>
+                    <div class="border-r border-gray-500 h-6"></div>
+                    <button
+                        class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
+                        data-rover="spirit"
+                        data-max-sol="2208"
+                    >
+                        Spirit
                     </button>
                 </div>
 
