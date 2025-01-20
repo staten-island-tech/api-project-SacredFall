@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // async function to fetch initial data
 async function fetchInitialData() {
-  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv"; // Replace with your API key
-  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3000&api_key=${apiKey}`;
+  const apiKey = "y6wfJ09QATMCEW7XJkQNUjZbuD4kWbmlTx7jJDIv"; 
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3000&api_key=${apiKey}`; //FIRST API CALL
 
   try {
     const response = await fetch(url);
@@ -105,7 +105,7 @@ async function fetchInitialData() {
   }
 }
 
-// Form submission event listener for the second API call
+// SECOND API CALL
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
