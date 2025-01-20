@@ -8,22 +8,26 @@ const photoGallery = document.getElementById("photo-gallery");
 const roverTitle = document.getElementById("rover-title");
 const roverDetails = document.getElementById("rover-details");
 const roverNameInput = document.getElementById("rover-name");
+const roverSolInput = document.getElementById("rover-sol");
 const roverTabs = document.querySelectorAll(".rover-tab");
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
 const closeModalButton = document.getElementById("close-modal");
 
-// Add event listeners to rover tabs
 roverTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    // Remove active class from all tabs
+    // remove active
     roverTabs.forEach((t) =>
       t.classList.remove("text-white", "border-slate-500"),
     );
-    // Add active class to the clicked tab
+    // active tab to clicked
     tab.classList.add("text-white", "border-slate-500");
-    // Update the hidden input with the selected rover name
+    // update the hiddne input
     roverNameInput.value = tab.getAttribute("data-rover");
+    // placeholder update
+    const maxSol = tab.getAttribute("data-max-sol");
+    roverSolInput.placeholder = `Max Sol: ${maxSol}`;
+    roverSolInput.max = maxSol;
   });
 });
 
@@ -34,12 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   curiosityTab.classList.add("text-white", "border-slate-500");
   roverNameInput.value = "curiosity";
+  roverSolInput.placeholder = "Max Sol: 4427";
+  roverSolInput.max = "4427";
 
-  // Initial API call on page load
+  // intial fetch
   fetchInitialData();
 });
 
-// Function to fetch initial data on page load
+// async function to fetch initial data
 async function fetchInitialData() {
   const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy"; // Replace with your API key
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3000&api_key=${apiKey}`;
@@ -51,7 +57,7 @@ async function fetchInitialData() {
     if (data.photos.length > 0) {
       const roverData = data.photos[0].rover;
 
-      // Update rover info
+      // update
       roverTitle.textContent = `Rover: ${roverData.name}`;
       roverDetails.innerHTML = `
                 Launch Date: ${roverData.launch_date} <br>
@@ -60,7 +66,7 @@ async function fetchInitialData() {
             `;
       roverInfo.classList.remove("hidden");
 
-      // Display photos
+      // photo dfisplay
       photoGallery.innerHTML = "";
       photoGallery.classList.add("grid", "grid-cols-5", "gap-4");
       data.photos.forEach((photo) => {
@@ -97,22 +103,21 @@ form.addEventListener("submit", async (event) => {
 
   // Get form values
   const roverName = roverNameInput.value;
-  const sol = document.getElementById("rover-sol").value;
+  const sol = roverSolInput.value;
 
-  // NASA API URL and key
+  // info
   const apiKey = "UwfaIbzBps4jWpTrHKSTSnWm9Wyqw995oieEReNy"; // Replace with your API key
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=${sol}&api_key=${apiKey}`;
 
   try {
-    // Fetch data from API
+    // fetch
     const response = await fetch(url);
     const data = await response.json();
 
-    // Handle rover information
     if (data.photos.length > 0) {
       const roverData = data.photos[0].rover;
 
-      // Update rover info
+      // rover update
       roverTitle.textContent = `Rover: ${roverData.name}`;
       roverDetails.innerHTML = `
                 Launch Date: ${roverData.launch_date} <br>
@@ -121,7 +126,7 @@ form.addEventListener("submit", async (event) => {
             `;
       roverInfo.classList.remove("hidden");
 
-      // Display photos
+      // photo display
       photoGallery.innerHTML = "";
       photoGallery.classList.add("grid", "grid-cols-5", "gap-4");
       data.photos.forEach((photo) => {
@@ -146,12 +151,12 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-// Close modal
+//close
 closeModalButton.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
-// Close modal when clicking outside the image
+// close when click outside
 modal.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.classList.add("hidden");

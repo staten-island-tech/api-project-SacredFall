@@ -19,15 +19,16 @@
             </h2>
         </div>
 
-        <!-- Main content area -->
+        <!-- main -->
         <div class="flex-grow flex items-center justify-center">
-            <!-- Photo div containing the design -->
+            <!-- Container -->
             <div class="photo w-3/4 h-3/4 bg-slate-600 rounded-lg shadow-lg">
                 <!-- Tabs -->
                 <div class="flex space-x-4 bg-slate-700 px-4 py-2 rounded-t-lg">
                     <button
                         class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
                         data-rover="curiosity"
+                        data-max-sol="4427"
                     >
                         Curiosity
                     </button>
@@ -35,6 +36,7 @@
                     <button
                         class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
                         data-rover="spirit"
+                        data-max-sol="2208"
                     >
                         Spirit
                     </button>
@@ -42,16 +44,17 @@
                     <button
                         class="rover-tab text-gray-400 font-biryani hover:text-white border-b-2 border-transparent hover:border-slate-500 px-2"
                         data-rover="opportunity"
+                        data-max-sol="5111"
                     >
                         Opportunity
                     </button>
                 </div>
 
-                <!-- Main Content Area -->
+                <!-- Main Content -->
                 <div
                     class="flex-grow flex flex-col items-center justify-center p-4"
                 >
-                    <!-- Search Form -->
+                    <!-- Search -->
                     <form id="rover-form" class="w-full max-w-md">
                         <input
                             id="rover-name"
@@ -62,6 +65,7 @@
                             id="rover-sol"
                             type="number"
                             class="w-full p-2 font-biryani bg-slate-700 text-white rounded-lg border border-gray-500 mb-4"
+                            placeholder="Max Sol: 4427"
                         />
                         <button
                             type="submit"
@@ -71,7 +75,7 @@
                         </button>
                     </form>
 
-                    <!-- Results Section -->
+                    <!-- results -->
                     <div
                         id="rover-info"
                         class="text-white mt-8 text-center hidden"
@@ -89,7 +93,7 @@
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- modal -->
         <div
             id="modal"
             class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
